@@ -1,0 +1,42 @@
+# GraphQL schema example
+
+# type
+type Example {
+  string: String
+  int: Int
+  float: Float
+  boolean: Boolean
+  id: ID
+  stringArray: [String!]!
+}
+
+type ErrorConfig {
+  title: String!
+  content: String!
+  messages: [String!]
+}
+
+# enum
+enum EnumExample {
+  ONE
+  TWO
+}
+
+# input
+input ExampleInput {
+  value: Int!
+}
+
+# response
+type ExampleResponse {
+  status: String!
+}
+
+# query
+type Query {
+  exampleQuery: Int!
+}
+
+type Mutation {
+  exampleMutation(input: ExampleInput!): ExampleResponse
+}

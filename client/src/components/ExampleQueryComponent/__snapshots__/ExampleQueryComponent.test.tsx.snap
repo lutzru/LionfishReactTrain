@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleQueryComponent Component should render correctly with enzyme 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  item={true}
+  spacing={3}
+  xs={12}
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={true}
+    xs={12}
+  >
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      data-testid="EXAMPLE_PAGE_EXAMPLE_SAVE"
+      fullWidth={true}
+      onClick={[MockFunction]}
+      variant="outlined"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="ExampleText"
+      >
+        save
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={true}
+    xs={12}
+  >
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      data-testid="EXAMPLE_PAGE_EXAMPLE_LOAD"
+      fullWidth={true}
+      onClick={[MockFunction]}
+      variant="outlined"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="ExampleText"
+      >
+        load
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`ExampleQueryComponent Component should render correctly with react-test-renderer 1`] = `
+<div
+  className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-item MuiGrid-grid-xs-12"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-true"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+      data-testid="EXAMPLE_PAGE_EXAMPLE_SAVE"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[MockFunction]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <p
+          className="MuiTypography-root ExampleText MuiTypography-body1"
+        >
+          save
+        </p>
+      </span>
+    </button>
+  </div>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-true"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+      data-testid="EXAMPLE_PAGE_EXAMPLE_LOAD"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[MockFunction]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <p
+          className="MuiTypography-root ExampleText MuiTypography-body1"
+        >
+          load
+        </p>
+      </span>
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,50 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing 
+/client/coverage
+/client/.nyc_output
+/server/nohup.out
+/client/nohup.out
+
+
+# production
+build 
+
+# misc
+.history
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+shop
+shop.exe
+settings.development.json
+logs
+
+# docker
+/docker/app
+
+# maven
+/client/node
+.flattened-pom.xml
+*/target/
+target/
+/query-server/node
+
+# IntelliJ Idea
+/.idea
+*.iml
+
+# server
+server/application
+settings.development.json
+
+#client
+!/client/.env.dist
+
+/client/cypress/screenshots
+*.gitconfig

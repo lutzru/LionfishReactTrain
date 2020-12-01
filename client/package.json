@@ -1,0 +1,187 @@
+{
+    "name": "react-template",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "@apollo/client": "^3.2.1",
+        "@apollo/react-testing": "^4.0.0",
+        "@material-ui/core": "^4.9.14",
+        "@material-ui/icons": "^4.9.1",
+        "graphql": "^15.1.0",
+        "i18next": "19.4.5",
+        "i18next-fetch-backend": "3.0.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-i18next": "11.5.0",
+        "react-router-dom": "^5.1.2",
+        "react-router-hash-link": "^1.2.2",
+        "react-scripts": "3.4.1"
+    },
+    "devDependencies": {
+        "@cypress/code-coverage": "3.8.1",
+        "@cypress/instrument-cra": "1.1.1",
+        "@graphql-codegen/cli": "^1.15.3",
+        "@graphql-codegen/typescript": "^1.15.3",
+        "@istanbuljs/nyc-config-typescript": "^1.0.1",
+        "@storybook/addon-actions": "^5.3.18",
+        "@storybook/addon-info": "^5.3.18",
+        "@storybook/addon-knobs": "^5.3.18",
+        "@storybook/react": "^5.3.18",
+        "@testing-library/jest-dom": "^5.5.0",
+        "@testing-library/react": "^10.0.3",
+        "@testing-library/user-event": "^10.0.2",
+        "@types/enzyme": "^3.10.5",
+        "@types/enzyme-adapter-react-16": "^1.0.6",
+        "@types/jest": "^25.2.2",
+        "@types/node": "^14.0.1",
+        "@types/react": "^16.9.35",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-redux": "^7.1.8",
+        "@types/react-router-dom": "^5.1.5",
+        "@types/react-router-hash-link": "^1.2.1",
+        "@types/react-test-renderer": "^16.9.2",
+        "@types/storybook-react-router": "^1.0.1",
+        "@typescript-eslint/eslint-plugin": "^2.33.0",
+        "@typescript-eslint/parser": "^2.33.0",
+        "awesome-typescript-loader": "^5.2.1",
+        "cypress": "4.5.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
+        "enzyme-to-json": "3.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.20.0",
+        "http-proxy-middleware": "^1.0.5",
+        "husky": "^4.2.5",
+        "install-deps-postmerge": "^1.0.5",
+        "istanbul-api": "^3.0.0",
+        "istanbul-lib-coverage": "^3.0.0",
+        "lint-staged": "^10.2.3",
+        "nyc": "^15.0.1",
+        "prettier": "^2.0.5",
+        "react-test-renderer": "^16.13.1",
+        "redux-devtools-extension": "^2.13.8",
+        "storybook-addon-material-ui": "^0.9.0-alpha.21",
+        "storybook-react-router": "^1.0.8",
+        "typescript": "^3.9.2"
+    },
+    "scripts": {
+        "generate": "graphql-codegen",
+        "postmerge": "install-deps-postmerge",
+        "ts": "tsc --watch --noEmit",
+        "ts:ci": "yarn ts:lint --max-warnings 0 && yarn ts:type",
+        "ts:lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
+        "ts:type": "tsc --noEmit",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "test:run": "react-scripts test --watchAll=false",
+        "test:ci": "yarn test --env=jsdom --coverage --watchAll=false",
+        "countCommits": "BUILDNUM=\"$(git log --format=oneline | wc -l)\" && sed -i \"s/REACT_APP_BUILD_NUMBER=.*/REACT_APP_BUILD_NUMBER=$BUILDNUM/\" ./.env",
+        "cypress:run": "cypress run",
+        "cypress:open": "cypress open",
+        "storybook": "start-storybook -p 9009 -s public",
+        "start:ci": "BROWSER=none CI=true nohup react-scripts -r @cypress/instrument-cra start & cd ../server && nohup ./run-ci.sh &",
+        "stop:ci": "npx kill-port 3000 && npx kill-port 8080",
+        "precypress:ci": "yarn start:ci",
+        "cypress:ci": "cypress run --config video=false",
+        "postcypress:ci": "yarn stop:ci",
+        "cover": "yarn cover:unit && yarn cover:integration && yarn cover:report",
+        "cover:unit": "if [  -d .nyc_output ]; then rm -R .nyc_output; fi && if [  -d coverage ]; then rm -R coverage; fi && yarn ts:ci && yarn countCommits && yarn test:ci",
+        "cover:integration": "nyc --no-clean yarn cypress:ci",
+        "cover:out": "nyc merge .nyc_output .nyc_output/out.json",
+        "cover:report": "yarn cover:out && node coverageMerge.js",
+        "start:loc": "BROWSER=none CI=true nohup react-scripts -r @cypress/instrument-cra start & cd ../server && nohup ./run.sh &",
+        "stop:loc": "npx kill-port 3000 && npx kill-port 8080",
+        "precypress:loc": "yarn start:loc",
+        "cypress:loc": "cypress run --config video=false",
+        "postcypress:loc": "yarn stop:loc",
+        "cover:loc": "yarn cover:unit:loc && yarn cover:integration:loc && yarn cover:report:loc",
+        "cover:unit:loc": "if [  -d .nyc_output ]; then rm -R .nyc_output; fi && if [  -d coverage ]; then rm -R coverage; fi && yarn ts:ci && yarn countCommits && yarn test:ci",
+        "cover:integration:loc": "nyc --no-clean yarn cypress:loc",
+        "cover:out:loc": "nyc merge .nyc_output .nyc_output/out.json",
+        "cover:report:loc": "yarn cover:out:loc && node coverageMerge.js"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "nyc": {
+        "extends": "@istanbuljs/nyc-config-typescript",
+        "all": true,
+        "reporter": [
+            "text",
+            "lcov"
+        ],
+        "include": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "src/utils/testable/*.{js,jsx,ts,tsx}"
+        ],
+        "exclude": [
+            "<rootDir>/node_modules/",
+            "src/*{index.tsx,App.tsx,react-app-env.d.ts,setupTests.js}",
+            "src/*{index.tsx,App.tsx,react-app-env.d.ts,setupTests.js,useApolloClient.ts}",
+            "src/**/**/*.{stories.tsx,test.tsx,test.ts,actions.ts}",
+            "src/**/**/index.ts",
+            "src/**/store.ts",
+            "src/graphql/**",
+            "src/utils/*"
+        ],
+        "excludeAfterRemap": true
+    },
+    "jest": {
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "src/utils/testable/*.{js,jsx,ts,tsx}",
+            "!<rootDir>/node_modules/",
+            "!src/*{index.tsx,App.tsx,react-app-env.d.ts,setupTests.js,useApolloClient.ts}",
+            "!src/**/**/*.{stories.tsx,actions.ts}",
+            "!src/**/**/index.ts",
+            "!src/**/store.ts",
+            "!src/graphql/**",
+            "!src/utils/*"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 0,
+                "functions": 0,
+                "lines": 0,
+                "statements": 0
+            }
+        },
+        "coverageReporters": [
+            "json",
+            "text",
+            "lcov",
+            "clover"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsc --noEmit && lint-staged",
+            "pre-push": "yarn ts:ci && yarn test:run",
+            "post-merge": "yarn postmerge",
+            "post-rewrite": "yarn postmerge",
+            "post-checkout": "yarn postmerge"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --write"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

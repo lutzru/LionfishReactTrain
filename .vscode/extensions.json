@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "teamchilla.blueprint",
+        "wix.vscode-import-cost",
+        "xyz.local-history",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "wayou.vscode-todo-highlight",
+        "pkief.material-icon-theme",
+        "orta.vscode-jest"
+    ]
+}

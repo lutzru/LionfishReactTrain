@@ -1,0 +1,20 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "files.associations": {
+    "**/blueprint-templates/*/*/*.tsx": "plaintext",
+    "**/blueprint-templates/*/*/*.ts": "plaintext"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true,
+  "files.eol": "\n",
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "off",
+  "typescript.tsc.autoDetect": "off",
+  "npm.autoDetect": "off",
+  "debug.allowBreakpointsEverywhere": true,
+  "html.autoClosingTags": false
+}
