@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { withKnobs } from '@storybook/addon-knobs'
+import { boolean, text, withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import 'utils/ i18n'
@@ -25,6 +25,16 @@ const props2: SearchBarProps = {
     filterStateFertig: false,
 }
 
+const propsX: SearchBarProps = {
+    onSearchTextChanged: action('onSearchTextChanged'),
+    onFilterToggle: action('onFilterToggle'),
+    searchText: text('Searchtext', ''),
+    filterStateOffen: boolean('offen', false),
+    filterStateInArbeit: boolean('in Arbeit', false),
+    filterStateFertig: boolean('fertig', false),
+}
+
 stories.addDecorator(withKnobs)
 stories.add('default view', () => <SearchBar {...props} />)
 stories.add('empty view', () => <SearchBar {...props2} />)
+stories.add('interactive view2', () => <SearchBar {...propsX} />)

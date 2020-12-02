@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar Component should render correctly with enzyme 1`] = `
+<Styled(MuiBox)
+  padding={3}
+>
+  <WithStyles(ForwardRef(Grid))
+    alignItems="center"
+    container={true}
+    spacing={4}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={3}
+      xs={12}
+    >
+      <WithStyles(ForwardRef(TextField))
+        id="searchtext"
+        label="Artikelnr.:"
+        onChange={[Function]}
+        value="SearchText"
+      />
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      item={true}
+      sm={9}
+      xs={12}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={4}
+        xs={12}
+      >
+        <WithStyles(ForwardRef(FormControlLabel))
+          control={
+            <ForwardRef(WithStyles)
+              checked={true}
+              color="primary"
+              name="Offen"
+              onChange={[Function]}
+            />
+          }
+          label="offen"
+        />
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={4}
+        xs={12}
+      >
+        <WithStyles(ForwardRef(FormControlLabel))
+          control={
+            <ForwardRef(WithStyles)
+              checked={true}
+              color="primary"
+              name="InArbeit"
+              onChange={[Function]}
+            />
+          }
+          label="in Arbeit"
+        />
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={4}
+        xs={12}
+      >
+        <WithStyles(ForwardRef(FormControlLabel))
+          control={
+            <ForwardRef(WithStyles)
+              checked={true}
+              color="primary"
+              name="Fertig"
+              onChange={[Function]}
+            />
+          }
+          label="fertig"
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Styled(MuiBox)>
+`;
