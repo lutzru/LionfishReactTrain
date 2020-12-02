@@ -1,7 +1,5 @@
 import { Container, Grid, Paper } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
-import ExampleComponent from 'components/ExampleComponent'
-import ExampleQueryComponent from 'components/ExampleQueryComponent'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import TestIDs from 'utils/TestIDs'
@@ -20,23 +18,6 @@ const TestPage = (): JSX.Element => {
                             {t('exampleProject')}
                         </Typography>
                     </Grid>
-                    <ExampleComponent
-                        currentValue={currentValue}
-                        decreaseValue={(): void => setCurrentValue(currentValue - 1)}
-                        increaseValue={(): void => setCurrentValue(currentValue + 1)}
-                    />
-                    <ExampleQueryComponent
-                        loadLastSavedCount={(): void => {
-                            loadValue()
-                        }}
-                        saveCount={(): void => {
-                            saveValue({
-                                variables: {
-                                    input: { value: currentValue },
-                                },
-                            })
-                        }}
-                    />
                 </Grid>
             </Paper>
         </Container>
