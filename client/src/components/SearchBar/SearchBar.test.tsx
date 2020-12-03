@@ -22,7 +22,8 @@ const props: SearchBarProps = {
 }
 
 //
-//  reproduzierbarer test, testet nur die geänderte Komponente
+//  reproduzierbarer Test, testet nur die geänderte Komponente
+//  eingefrorener manueller Test.  / Ordner _snapshots_ mit einchecken
 //  u - erneuert den Snapshot
 //
 
