@@ -6,7 +6,7 @@ import TestIDs from 'utils/TestIDs'
 import { useExamplePageState } from './useExamplePageState'
 
 const TestPage = (): JSX.Element => {
-    const { currentValue, setCurrentValue, loadValue, saveValue } = useExamplePageState()
+    const { currentValue, setCurrentValue } = useExamplePageState()
     const { t } = useTranslation()
 
     return (

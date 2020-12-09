@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginDialog Component should render correctly with enzyme 1`] = `
+<Styled(MuiBox)
+  padding={3}
+>
+  <WithStyles(ForwardRef(Paper))
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      padding={3}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        direction="column"
+        spacing={3}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Typography))
+            variant="h2"
+          >
+            Login:
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Alert))
+            severity="error"
+          >
+            <WithStyles(ForwardRef(AlertTitle))>
+              Error
+            </WithStyles(ForwardRef(AlertTitle))>
+            Du kommst hier ned rein.
+          </WithStyles(ForwardRef(Alert))>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(TextField))
+            id="standard-basic"
+            label="Benutzername"
+            onChange={[Function]}
+            value="TestUsername"
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(TextField))
+            id="standard-basic"
+            label="Passwort"
+            onChange={[Function]}
+            type="password"
+            value="geheim"
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            color="primary"
+            disabled={false}
+            onClick={[MockFunction]}
+            variant="contained"
+          >
+            Go
+          </WithStyles(ForwardRef(Button))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;
