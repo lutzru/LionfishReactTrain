@@ -25,16 +25,15 @@ const props2: SearchBarProps = {
     filterStateFertig: false,
 }
 
-const propsX: SearchBarProps = {
-    onSearchTextChanged: action('onSearchTextChanged'),
-    onFilterToggle: action('onFilterToggle'),
-    searchText: text('Searchtext', ''),
-    filterStateOffen: boolean('offen', false),
-    filterStateInArbeit: boolean('in Arbeit', false),
-    filterStateFertig: boolean('fertig', false),
-}
-
 stories.addDecorator(withKnobs)
-stories.add('default view', () => <SearchBar {...props} />)
+stories.add('default view (interactive)', () => (
+    <SearchBar
+        onSearchTextChanged={action('onSearchTextChanged')}
+        onFilterToggle={action('onFilterToggle')}
+        searchText={text('Searchtext', '')}
+        filterStateOffen={boolean('offen', false)}
+        filterStateInArbeit={boolean('in Arbeit', false)}
+        filterStateFertig={boolean('fertig', false)}
+    />
+))
 stories.add('empty view', () => <SearchBar {...props2} />)
-stories.add('interactive view2', () => <SearchBar {...propsX} />)
