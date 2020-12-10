@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LutzTask Component should render correctly with enzyme 1`] = `
+<Styled(MuiBox)
+  padding={3}
+>
+  <WithStyles(ForwardRef(Grid))
+    alignItems="center"
+    container={true}
+    spacing={4}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <WithStyles(ForwardRef(TextField))
+        id="taskDate"
+        label="Datum:"
+        onChange={[Function]}
+      />
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      Prio:
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      Text:
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      Status:
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Styled(MuiBox)>
+`;
