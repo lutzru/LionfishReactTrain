@@ -1,12 +1,16 @@
-import { Container, Grid } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 import LoginDialog from 'components/LoginDialog'
 import * as React from 'react'
+import { useSelector } from 'react-redux'
+import { AppState } from 'store/store'
 import { useLoginPageState } from './useLoginPageState'
 
 const LoginPage = (): JSX.Element => {
     //const { t } = useTranslation()
 
     const { fehlermeldung, onLoginClick, onPasswordChange, onUserNameChange, password, userName } = useLoginPageState()
+
+    const { user } = useSelector((appState: AppState) => ({ user: appState.generalState.user }))
 
     return (
         <Container maxWidth={'lg'}>
@@ -20,6 +24,7 @@ const LoginPage = (): JSX.Element => {
                         onClick={onLoginClick}
                         loginError={fehlermeldung}
                     />
+                    <Typography variant="h1">user: {user}</Typography>
                 </Grid>
             </Grid>
         </Container>

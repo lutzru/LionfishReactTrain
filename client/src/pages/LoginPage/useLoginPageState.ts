@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { Dispatch, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { GeneralStateAction, GeneralStateActions } from '../../store/GeneralState/GeneralState.reducer'
 
 interface LoginPageStateReturn {
     onLoginClick: () => void
@@ -10,12 +12,17 @@ interface LoginPageStateReturn {
 }
 
 export const useLoginPageState: () => LoginPageStateReturn = () => {
+    const dispatch = useDispatch<Dispatch<GeneralStateActions>>()
     const [userName, setUserName] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [fehlermeldung, setFehlermeldung] = useState('')
 
     const onLoginClick = () => {
-        if (userName === 'asdf' && password === 'geheim') {
+        if (password === 'geheim') {
+            dispatch({
+                type: GeneralStateAction.SET_USER,
+                payload: { token: 'asdfkajdflkjad', user: userName, role: 'Benutzer' },
+            })
             console.log('Login successful!')
             setFehlermeldung('')
         } else {
