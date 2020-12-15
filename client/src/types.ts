@@ -1,5 +1,5 @@
 export enum CollectionDeliveryState {
-    OFFEN, 
-    IN_ARBEIT, 
-    FERTIG 
+    OFFEN,
+    IN_ARBEIT,
+    FERTIG,
 }

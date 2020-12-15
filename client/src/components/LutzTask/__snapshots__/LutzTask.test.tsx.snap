@@ -16,6 +16,7 @@ exports[`LutzTask Component should render correctly with enzyme 1`] = `
         id="taskDate"
         label="Datum:"
         onChange={[Function]}
+        value="01.02.1987"
       />
     </WithStyles(ForwardRef(Grid))>
     <WithStyles(ForwardRef(Grid))

@@ -1,8 +1,7 @@
-import { Typography } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import * as React from 'react'
-import * as renderer from 'react-test-renderer'
 import LutzTask, { LutzTaskProps } from './LutzTask'
 
 jest.mock('react-i18next', () => ({
@@ -16,19 +15,10 @@ jest.mock('react', () => ({
 
 const props: LutzTaskProps = {
     onTaskDateChanged: jest.fn(),
+    taskDate: '01.02.1987',
 }
 
 describe('LutzTask Component', () => {
-    beforeEach(() => {
-        const setState = jest.fn()
-        // @ts-ignore
-        useStateMock.mockImplementation((state) => [state, setState])
-    })
-    it('should render correctly with react-test-renderer', () => {
-        const component = renderer.create(<LutzTask {...props} />)
-
-        expect(component).toMatchSnapshot()
-    })
     it('should render correctly with enzyme', () => {
         const component = shallow(<LutzTask {...props} />)
 
@@ -36,9 +26,9 @@ describe('LutzTask Component', () => {
     })
     it('should handle a click correctly', () => {
         const onClickMock = jest.fn()
-        const component = shallow(<LutzTask onTaskDateChanged={onClickMock} />)
+        const component = shallow(<LutzTask onTaskDateChanged={onClickMock} taskDate={'01.02.1987'} />)
 
-        component.find(Typography).simulate('click', { currentTarget: { value: 0 } })
+        component.find(TextField).simulate('change', { target: { value: 'Test' } })
         expect(onClickMock).toHaveBeenCalledTimes(1)
     })
 })

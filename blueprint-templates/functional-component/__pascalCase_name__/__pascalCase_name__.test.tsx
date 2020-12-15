@@ -2,7 +2,6 @@ import { Typography } from '@material-ui/core'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import * as React from 'react'
-import * as renderer from 'react-test-renderer'
 import {{ pascalCase name }}, { {{ pascalCase name }}Props }  from './{{pascalCase name}}'
 
 jest.mock('react-i18next', () => ({
@@ -18,18 +17,7 @@ const props: {{ pascalCase name }}Props = {
     onClick: jest.fn(),
 }
 
-
 describe('{{ pascalCase name }} Component', () => {
-  beforeEach(() => {
-    const setState = jest.fn()
-    // @ts-ignore
-    useStateMock.mockImplementation((state) => [state, setState])
-  })
-  it('should render correctly with react-test-renderer', () => {
-      const component = renderer.create(<{{ pascalCase name }} {...props} />)
-
-      expect(component).toMatchSnapshot()
-  })
   it('should render correctly with enzyme', () => {
     const component = shallow(<{{ pascalCase name }} {...props} />)
     
