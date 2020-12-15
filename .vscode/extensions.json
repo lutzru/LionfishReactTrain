@@ -4,7 +4,7 @@
         "wix.vscode-import-cost",
         "xyz.local-history",
         "esbenp.prettier-vscode",
-        "ms-vscode.vscode-typescript-tslint-plugin",
+        "dbaeumer.vscode-eslint",
         "wayou.vscode-todo-highlight",
         "pkief.material-icon-theme",
         "orta.vscode-jest"

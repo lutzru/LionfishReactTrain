@@ -28,20 +28,10 @@ logs
 # docker
 /docker/app
 
-# maven
-/client/node
-.flattened-pom.xml
-*/target/
-target/
-/query-server/node
-
-# IntelliJ Idea
-/.idea
-*.iml
-
 # server
 server/application
 settings.development.json
+server/out
 
 #client
 !/client/.env.dist
