@@ -12,6 +12,12 @@ export interface LoginDialogProps {
 }
 
 const LoginDialog = (props: LoginDialogProps): JSX.Element => {
+    const enterHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.charCode === 13) {
+            props.onClick()
+        }
+    }
+
     return (
         <Box padding={3}>
             <Paper elevation={3}>
@@ -36,6 +42,7 @@ const LoginDialog = (props: LoginDialogProps): JSX.Element => {
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     props.onUserNameChange(e.target.value)
                                 }}
+                                onKeyPress={enterHandler}
                             />
                         </Grid>
                         <Grid item>
@@ -47,6 +54,7 @@ const LoginDialog = (props: LoginDialogProps): JSX.Element => {
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     props.onPasswordChange(e.target.value)
                                 }}
+                                onKeyPress={enterHandler}
                             />
                         </Grid>
 
