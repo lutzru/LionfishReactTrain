@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import LoginDialog from 'components/LoginDialog'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
@@ -13,21 +13,19 @@ const LoginPage = (): JSX.Element => {
     const { user } = useSelector((appState: AppState) => ({ user: appState.generalState.user }))
 
     return (
-        <Container maxWidth={'lg'}>
-            <Grid container justify={'center'} spacing={2}>
-                <Grid item xs={12}>
-                    <LoginDialog
-                        userName={userName}
-                        onUserNameChange={onUserNameChange}
-                        password={password}
-                        onPasswordChange={onPasswordChange}
-                        onClick={onLoginClick}
-                        loginError={fehlermeldung}
-                    />
-                    <Typography variant="h1">user: {user}</Typography>
-                </Grid>
+        <Grid container justify={'center'} spacing={2}>
+            <Grid item xs={12}>
+                <LoginDialog
+                    userName={userName}
+                    onUserNameChange={onUserNameChange}
+                    password={password}
+                    onPasswordChange={onPasswordChange}
+                    onClick={onLoginClick}
+                    loginError={fehlermeldung}
+                />
+                <Typography variant="h1">user: {user}</Typography>
             </Grid>
-        </Container>
+        </Grid>
     )
 }
 

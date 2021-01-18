@@ -1,5 +1,5 @@
 // import { ApolloProvider } from '@apollo/client'
-import { ThemeProvider } from '@material-ui/core'
+import { Container, ThemeProvider } from '@material-ui/core'
 import ExamplePage from 'pages/ExamplePage'
 import LoginPage from 'pages/LoginPage'
 import React from 'react'
@@ -22,13 +22,15 @@ function App(): JSX.Element {
         <HashRouter>
             <Provider store={store}>
                 <ThemeProvider theme={ModifiedTheme}>
-                    <Switch>
-                        <Route exact path={'/Example'} component={ExamplePage} />
-                        <Route exact path={'/Login'} component={LoginPage} />
-                        <Route>
-                            <Redirect to={'/Login'} />
-                        </Route>
-                    </Switch>
+                    <Container maxWidth={'lg'}>
+                        <Switch>
+                            <Route exact path={'/Example'} component={ExamplePage} />
+                            <Route exact path={'/Login'} component={LoginPage} />
+                            <Route>
+                                <Redirect to={'/Login'} />
+                            </Route>
+                        </Switch>
+                    </Container>
                 </ThemeProvider>
             </Provider>
         </HashRouter>
