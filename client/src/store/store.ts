@@ -1,5 +1,5 @@
-import { combineReducers, createStore } from 'redux'
-import { devToolsEnhancer } from 'redux-devtools-extension'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import thunk from 'redux-thunk'
 import GeneralStateReducer from './GeneralState/GeneralState.reducer'
 
 export const rootReducer = combineReducers({
@@ -7,6 +7,7 @@ export const rootReducer = combineReducers({
 })
 
 // @ts-ignore
-const store = createStore(rootReducer, devToolsEnhancer())
+// const store = createStore(rootReducer, devToolsEnhancer())
+const store = createStore(rootReducer, applyMiddleware(thunk))
 export default store
 export type AppState = ReturnType<typeof rootReducer>

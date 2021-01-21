@@ -11,6 +11,7 @@
 
 export enum GeneralStateAction {
     SET_USER = 'SET_USER',
+    DELETE_POST = 'DELETE_POST',
 }
 
 export interface GeneralState {
@@ -25,11 +26,12 @@ const initialGeneralState: GeneralState = {
     role: '',
 }
 
-export type GeneralStateActions = {
-    type: GeneralStateAction.SET_USER
-    payload: { user: string; role: string; token: string }
-}
-// | { type: GeneralStateAction.DELETE_POST; payload: number }
+export type GeneralStateActions =
+    | {
+          type: GeneralStateAction.SET_USER
+          payload: { user: string; role: string; token: string }
+      }
+    | { type: GeneralStateAction.DELETE_POST; payload: number }
 
 function GeneralStateReducer(state: GeneralState = initialGeneralState, action: GeneralStateActions): GeneralState {
     switch (action.type) {
