@@ -1,42 +1,73 @@
 # GraphQL schema example
 
-# type
-type Example {
-  string: String
-  int: Int
-  float: Float
-  boolean: Boolean
-  id: ID
-  stringArray: [String!]!
+# type Anlieferung
+type Anlieferung {
+  id: ID!
+  date: String!
+  lieferant: Lieferant!
+  artikel: Artikel!
 }
 
-type ErrorConfig {
-  title: String!
-  content: String!
-  messages: [String!]
+type Arikel {
+  id: ID!
+  articleNumber: Int!
+  name: String
 }
 
-# enum
-enum EnumExample {
-  ONE
-  TWO
+type Lieferant {
+  id: ID!
+  lieferantenNummer: Int!
+  name: String
 }
 
-# input
-input ExampleInput {
-  value: Int!
-}
-
-# response
-type ExampleResponse {
-  status: String!
+enum CollectionDeliveryState {
+  OFFEN
+  IN_ARBEIT
+  FERTIG
 }
 
 # query
 type Query {
-  exampleQuery: Int!
+  # exampleQuery: Int!
+  anlieferung(id: ID): Anlieferung
+  anlieferungen(
+    status: [CollectionDeliveryState]
+    searchTerm: String
+  ): [Anlieferung!]!
 }
 
-type Mutation {
-  exampleMutation(input: ExampleInput!): ExampleResponse
-}
+# type Mutation {
+#   exampleMutation(input: ExampleInput!): ExampleResponse
+# }
+
+# # input
+# input ExampleInput {
+#   value: Int!
+# }
+
+# # response
+# type ExampleResponse {
+#   status: String!
+# }
+
+# # Example types
+# type Example {
+#   string: String
+#   int: Int
+#   float: Float
+#   boolean: Boolean
+#   id: ID
+#   stringArray: [String!]!
+# }
+
+# type ErrorConfig {
+#   title: String!
+#   content: String!
+#   messages: [String!]
+# }
+
+# # enum
+# enum EnumExample {
+#   ONE
+#   TWO
+# }

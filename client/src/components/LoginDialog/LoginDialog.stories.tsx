@@ -40,8 +40,6 @@ const props4: LoginDialogProps = {
     onPasswordChange: action('onPasswordChange'),
 }
 
-stories.addDecorator(withKnobs)
-
 stories.add('empty view', () => <LoginDialog {...props2} />)
 stories.add('only Username', () => <LoginDialog {...props3} />)
 stories.add('Username and password given', () => <LoginDialog {...props4} />)
@@ -52,6 +50,9 @@ stories.add('view with error', () => <LoginDialog {...props} />)
 // Werte müssen hier drin definiert sein,
 // nicht als const vorher. (Damit nobs funktioniert.)
 //
+
+stories.addDecorator(withKnobs)
+
 stories.add('interactive view', () => (
     <LoginDialog
         userName={text('Username', '')}
