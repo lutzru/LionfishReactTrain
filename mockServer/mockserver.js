@@ -4,10 +4,13 @@ const { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
 const { makeExecutableSchema } = require('graphql-tools')
 const { readFileSync } = require('fs')
 
+const { ApolloServer, gql } = require('apollo-server-express');
+
 const Anlieferungen = [
     {
         id: '123',
         date: '2021-03-02',
+        status: 'OFFEN',  
         lieferant: {
             id: '678',
             lieferantenNummer: '456',
@@ -22,6 +25,7 @@ const Anlieferungen = [
     {
         id: '124',
         date: '2021-03-02',
+        status: 'FERTIG', 
         lieferant: {
             id: '678',
             lieferantenNummer: '456',
@@ -36,6 +40,7 @@ const Anlieferungen = [
     {
         id: '125',
         date: '2021-03-02',
+        status: 'IN_ARBEIT', 
         lieferant: {
             id: '678',
             lieferantenNummer: '456',
@@ -54,25 +59,31 @@ const typeDefs = readFileSync('../graphql/schema.graphqls', 'utf-8')
 
 // The resolvers
 const resolvers = {
-    Query: { anlieferungen: () => Anlieferungen },
+    Query: { 
+        anlieferungen: (parent, args, context, info) => Anlieferungen.filter( ( anlieferung ) => {
+            console.log('args.status: ',args.status)
+            console.log('anlieferung.status: ',anlieferung.status)
+            //args.searchTerm
+             return (anlieferung.artikel.name.indexOf(args.searchTerm) > -1  || !args.searchTerm) &&
+                    (!args.status || args.status.includes(anlieferung.status)  ) 
+            
+                    //  (item.status === args.status   || !args.status )
+            
+        }) ,
+        anlieferung: (parent, args, context, info) => Anlieferungen.find( ( item ) => {
+             
+            return item.id === args.id 
+        }) 
+        /*
+        anlieferung: (parent, args, context, info) => {
+            const id = args.id
+        } 
+        */
+    },
 }
 
-// Put together a schema
-const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers,
-})
-
-// Initialize the app
 const app = express()
 
-// The GraphQL endpoint
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }))
-
-// GraphiQL, a visual editor for queries
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
-
-// Start the server
-app.listen(3000, () => {
-    console.log('Go to http://localhost:3000/graphiql to run queries!')
-})
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app });
+app.listen({ port: 4000 })

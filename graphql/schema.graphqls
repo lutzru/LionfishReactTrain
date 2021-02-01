@@ -6,9 +6,10 @@ type Anlieferung {
   date: String!
   lieferant: Lieferant!
   artikel: Artikel!
+  status: CollectionDeliveryState!
 }
 
-type Arikel {
+type Artikel {
   id: ID!
   articleNumber: Int!
   name: String
