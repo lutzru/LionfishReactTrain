@@ -1,5 +1,6 @@
 import { Dispatch, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Action } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 import { GeneralState, GeneralStateAction, GeneralStateActions } from '../../store/GeneralState/GeneralState.reducer'
@@ -41,10 +42,12 @@ export const useLoginPageState: () => LoginPageStateReturn = () => {
     const [password, setPassword] = useState<string>('')
     const [fehlermeldung, setFehlermeldung] = useState('')
 
+    const history = useHistory()
     const onLoginClick = () => {
         if (password === 'geheim') {
             dispatch(login2(userName))
             setFehlermeldung('')
+            history.push('/Dashboard')
         } else {
             setFehlermeldung('ungültiger user/password')
         }

@@ -1,15 +1,15 @@
 import { storiesOf } from '@storybook/react'
+import { CollectionDeliveryState } from 'graphqltypes/globalTypes'
 import * as React from 'react'
 import 'utils/ i18n'
-import QualityCheckStatus, { QualityCheckStatusType } from './QualityCheckStatus'
+import QualityCheckStatus from './QualityCheckStatus'
 
 const stories = storiesOf('QualityCheckStatus', module)
 
 stories.add('default view', () => (
     <>
-        <QualityCheckStatus status={QualityCheckStatusType.OPEN} />
-        <QualityCheckStatus status={QualityCheckStatusType.IN_PROGRESS} />
-        <QualityCheckStatus status={QualityCheckStatusType.FINISHED} />{' '}
-        <QualityCheckStatus status={QualityCheckStatusType.BLOCKED} />
+        <QualityCheckStatus status={CollectionDeliveryState.OFFEN} />
+        <QualityCheckStatus status={CollectionDeliveryState.IN_ARBEIT} />
+        <QualityCheckStatus status={CollectionDeliveryState.FERTIG} />{' '}
     </>
 ))

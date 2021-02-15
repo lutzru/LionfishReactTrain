@@ -1,10 +1,18 @@
 import gql from 'graphql-tag'
 
 export default gql`
-    query Anlieferungen($status: [CollectionDeliveryState!]!) {
-        anlieferungen(status: $status) {
+    query Anlieferungen($status: [CollectionDeliveryState!]!, $searchTerm: String) {
+        anlieferungen(status: $status, searchTerm: $searchTerm) {
             id
             status
+            artikel {
+                name
+            }
+            lieferant {
+                id
+                lieferantenNummer
+                name
+            }
         }
     }
 `

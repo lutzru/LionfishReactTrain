@@ -1,15 +1,17 @@
 import { Box, makeStyles, Typography } from '@material-ui/core'
+import { CollectionDeliveryState } from 'graphqltypes/globalTypes'
 import * as React from 'react'
 
+/* durch den aus GraphQL ersetzt
 export enum QualityCheckStatusType {
     OPEN,
     IN_PROGRESS,
     FINISHED,
     BLOCKED,
-}
+}*/
 
 export interface QualityCheckStatusProps {
-    status: QualityCheckStatusType
+    status: CollectionDeliveryState
 }
 
 const useStyles = makeStyles({
@@ -42,15 +44,12 @@ const QualityCheckStatus = (props: QualityCheckStatusProps): JSX.Element => {
     const classes = useStyles()
     let styleClass = classes.statusInProgress
     let statusLabel = 'in arbeit'
-    if (props.status === QualityCheckStatusType.OPEN) {
+    if (props.status === CollectionDeliveryState.OFFEN) {
         styleClass = classes.statusOpen
         statusLabel = 'offen'
-    } else if (props.status === QualityCheckStatusType.FINISHED) {
+    } else if (props.status === CollectionDeliveryState.FERTIG) {
         styleClass = classes.statusFinished
         statusLabel = 'fertig'
-    } else if (props.status === QualityCheckStatusType.BLOCKED) {
-        styleClass = classes.statusBlocked
-        statusLabel = 'geblockt'
     }
 
     return (

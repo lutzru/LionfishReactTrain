@@ -1,17 +1,19 @@
 import { Box, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core'
 import * as React from 'react'
-import { CollectionDeliveryState } from 'types'
 
 //
 // Typisierung der Props per Interface
 //
 export interface SearchBarProps {
-    onSearchTextChanged: (searchText: string) => void
-    searchText: string
-    onFilterToggle: (filterState: CollectionDeliveryState) => void
+    setIsOffen: (filterState: boolean) => void
+    setIsInArbeit: (filterState: boolean) => void
+    setIsFertig: (filterState: boolean) => void
+    setSearchTerm: (searchText: string) => void
+
     filterStateOffen: boolean
     filterStateInArbeit: boolean
     filterStateFertig: boolean
+    searchTerm: string
 }
 
 // JSX.Element - typisierung des Returnwerts der Funktion
@@ -24,10 +26,10 @@ const SearchBar = (props: SearchBarProps): JSX.Element => {
                 <Grid item xs={12} sm={3}>
                     <TextField
                         id="searchtext"
-                        label="Artikelnr.:"
-                        value={props.searchText}
+                        label="Artikelbez.:"
+                        value={props.searchTerm}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                            props.onSearchTextChanged(e.target.value)
+                            props.setSearchTerm(e.target.value)
                         }}
                     />
                 </Grid>
@@ -41,7 +43,7 @@ const SearchBar = (props: SearchBarProps): JSX.Element => {
                                     color="primary"
                                     checked={props.filterStateOffen}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        props.onFilterToggle(CollectionDeliveryState.OFFEN)
+                                        props.setIsOffen(!props.filterStateOffen)
                                     }}
                                 />
                             }
@@ -57,7 +59,7 @@ const SearchBar = (props: SearchBarProps): JSX.Element => {
                                     color="primary"
                                     checked={props.filterStateInArbeit}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        props.onFilterToggle(CollectionDeliveryState.IN_ARBEIT)
+                                        props.setIsInArbeit(!props.filterStateInArbeit)
                                     }}
                                 />
                             }
@@ -73,7 +75,7 @@ const SearchBar = (props: SearchBarProps): JSX.Element => {
                                     color="primary"
                                     checked={props.filterStateFertig}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        props.onFilterToggle(CollectionDeliveryState.FERTIG)
+                                        props.setIsFertig(!props.filterStateFertig)
                                     }}
                                 />
                             }

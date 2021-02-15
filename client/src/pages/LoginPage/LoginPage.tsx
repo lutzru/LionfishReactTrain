@@ -1,10 +1,8 @@
-import { useQuery } from '@apollo/client'
 import { Grid, Typography } from '@material-ui/core'
 import LoginDialog from 'components/LoginDialog'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from 'store/store'
-import Anlieferungen from '../../graphql/queries/Anlieferungen'
 import { useLoginPageState } from './useLoginPageState'
 
 const LoginPage = (): JSX.Element => {
@@ -13,10 +11,6 @@ const LoginPage = (): JSX.Element => {
     const { fehlermeldung, onLoginClick, onPasswordChange, onUserNameChange, password, userName } = useLoginPageState()
 
     const { user } = useSelector((appState: AppState) => ({ user: appState.generalState.user }))
-
-    const { loading, error, data } = useQuery(Anlieferungen, {
-        variables: { status: ['FERTIG'] },
-    })
 
     return (
         <Grid container justify={'center'} spacing={2}>
@@ -30,7 +24,6 @@ const LoginPage = (): JSX.Element => {
                     loginError={fehlermeldung}
                 />
                 <Typography variant="h1">user: {user}</Typography>
-                <div>{data && JSON.stringify(data)}</div>
             </Grid>
         </Grid>
     )

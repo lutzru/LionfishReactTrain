@@ -14,7 +14,11 @@ jest.mock('react', () => ({
 
 const props: SearchBarProps = {
     onSearchTextChanged: jest.fn(),
-    onFilterToggle: jest.fn(),
+
+    setIsOffen: jest.fn(),
+    setIsInArbeit: jest.fn(),
+    setIsFertig: jest.fn(),
+
     searchText: 'SearchText',
     filterStateOffen: true,
     filterStateInArbeit: true,

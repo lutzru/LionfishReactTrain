@@ -1,6 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import { Container, ThemeProvider } from '@material-ui/core'
-import ExamplePage from 'pages/ExamplePage'
+import Dashboard from 'pages/Dashboard'
 import LoginPage from 'pages/LoginPage'
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -27,7 +27,7 @@ function App(): JSX.Element {
                     <ThemeProvider theme={ModifiedTheme}>
                         <Container maxWidth={'lg'}>
                             <Switch>
-                                <Route exact path={'/Example'} component={ExamplePage} />
+                                <Route exact path={'/Dashboard'} component={Dashboard} />
                                 <Route exact path={'/Login'} component={LoginPage} />
                                 <Route>
                                     <Redirect to={'/Login'} />

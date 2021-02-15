@@ -50,6 +50,7 @@
         "awesome-typescript-loader": "^5.2.1",
         "cypress": "4.5.0",
         "enzyme": "^3.11.0",
+        "apollo": "^2.32.1",
         "enzyme-adapter-react-16": "^1.15.2",
         "enzyme-to-json": "3.5.0",
         "eslint-config-prettier": "^6.11.0",
@@ -69,7 +70,7 @@
         "typescript": "^3.9.2"
     },
     "scripts": {
-        "generate": "graphql-codegen",
+        "generate": "apollo client:codegen --localSchemaFile=../graphql/schema.graphqls --outputFlat --target=typescript --includes=src/graphql/**/*.ts graphqltypes ; mv graphqltypes src/",
         "postmerge": "install-deps-postmerge",
         "ts": "tsc --watch --noEmit",
         "ts:ci": "yarn ts:lint --max-warnings 0 && yarn ts:type",
