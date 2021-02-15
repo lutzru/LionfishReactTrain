@@ -37,19 +37,19 @@ type Query {
   ): [Anlieferung!]!
 }
 
-# type Mutation {
-#   exampleMutation(input: ExampleInput!): ExampleResponse
-# }
+type Mutation {
+  exampleMutation(input: ExampleInput!): ExampleResponse
+}
 
-# # input
-# input ExampleInput {
-#   value: Int!
-# }
+# input
+input ExampleInput {
+  value: Int!
+}
 
-# # response
-# type ExampleResponse {
-#   status: String!
-# }
+# response
+type ExampleResponse {
+  status: String!
+}
 
 # # Example types
 # type Example {
