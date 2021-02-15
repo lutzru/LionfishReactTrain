@@ -1,8 +1,11 @@
 import gql from 'graphql-tag'
 
 export default gql`
-    query ExampleQuery {
-        exampleQuery
+    query Anlieferungen($status: [CollectionDeliveryState!]!) {
+        anlieferungen(status: $status) {
+            id
+            status
+        }
     }
 `
 

@@ -1,4 +1,4 @@
-// import { ApolloProvider } from '@apollo/client'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import { Container, ThemeProvider } from '@material-ui/core'
 import ExamplePage from 'pages/ExamplePage'
 import LoginPage from 'pages/LoginPage'
@@ -12,28 +12,32 @@ import useVersionTitle from 'utils/useVersionTitle'
 
 function App(): JSX.Element {
     useVersionTitle()
-    // const graphQLServerURI =
+    const graphQLServerURI = 'http://localhost:4000/graphql'
     // process.env.NODE_ENV !== 'production' ? process.env.REACT_APP_GRAPHQL_SERVER_URL + '/graphql' : '/graphql'
 
-    // const [error, setError] = React.useState<ErrorConfig>()
-    // const apolloClient = useApolloClient(graphQLServerURI, setError)
+    const client = new ApolloClient({
+        uri: graphQLServerURI,
+        cache: new InMemoryCache(),
+    })
 
     return (
-        <HashRouter>
-            <Provider store={store}>
-                <ThemeProvider theme={ModifiedTheme}>
-                    <Container maxWidth={'lg'}>
-                        <Switch>
-                            <Route exact path={'/Example'} component={ExamplePage} />
-                            <Route exact path={'/Login'} component={LoginPage} />
-                            <Route>
-                                <Redirect to={'/Login'} />
-                            </Route>
-                        </Switch>
-                    </Container>
-                </ThemeProvider>
-            </Provider>
-        </HashRouter>
+        <ApolloProvider client={client}>
+            <HashRouter>
+                <Provider store={store}>
+                    <ThemeProvider theme={ModifiedTheme}>
+                        <Container maxWidth={'lg'}>
+                            <Switch>
+                                <Route exact path={'/Example'} component={ExamplePage} />
+                                <Route exact path={'/Login'} component={LoginPage} />
+                                <Route>
+                                    <Redirect to={'/Login'} />
+                                </Route>
+                            </Switch>
+                        </Container>
+                    </ThemeProvider>
+                </Provider>
+            </HashRouter>
+        </ApolloProvider>
     )
 }
 
